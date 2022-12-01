@@ -21,6 +21,7 @@ public class ThirdPersonShooterController : MonoBehaviour
     // Script Reference
     private ThirdPersonController thirdPersonController;
     private StarterAssetsInputs starterAssetsInputs;
+    private Animator animator;
 
     private void Awake()
     {
@@ -28,6 +29,8 @@ public class ThirdPersonShooterController : MonoBehaviour
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
         //Get the component of the Third person controller
         thirdPersonController = GetComponent<ThirdPersonController>();
+        //gets the componet of the animator
+        animator = GetComponent<Animator>();
        
     }
 
@@ -60,6 +63,7 @@ public class ThirdPersonShooterController : MonoBehaviour
             //sets the Sensitivity to aim mode
             thirdPersonController.SetSensitivity(aimSensitivity);
             thirdPersonController.SetRotateOnMove(false);
+            animator.SetLayerWeight(1,Mathf.Lerp(animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
 
             Vector3 worldAimTarget = mouseWorldPosition;
             worldAimTarget.y = transform.position.y;
@@ -73,6 +77,7 @@ public class ThirdPersonShooterController : MonoBehaviour
             // sets the Sensitivity to the normal palyer camera
             thirdPersonController.SetSensitivity(normalSensitivity);
             thirdPersonController.SetRotateOnMove(true);
+            animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
 
         }
         if (starterAssetsInputs.shoot)
