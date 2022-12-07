@@ -63,7 +63,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 04e0a994fc64f3b48be255af77a900ac, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexMask:
@@ -137,7 +137,7 @@ Material:
     - __dirty: 0
     - _node_7818: 0.1805827
     m_Colors:
-    - _Color: {r: 7.780392, g: 64, b: 0, a: 1}
+    - _Color: {r: 1, g: 0, b: 0, a: 1}
     - _DissolveSpeed: {r: 1, g: 0.1, b: 0, a: 0}
     - _DissolveTiling1: {r: 1, g: 1, b: 0, a: 0}
     - _DistortionSpeed: {r: 0.2, g: 0.1, b: 0, a: 0}

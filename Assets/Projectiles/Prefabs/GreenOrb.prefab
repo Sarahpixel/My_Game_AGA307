@@ -29473,7 +29473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a2242f1d98cb384f96c78ba27a0c324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vfxRainbow: {fileID: 400010, guid: 7da46ba1a42444c44a2260d4a1c9c848, type: 3}
+  vfxExplosion: {fileID: 2827877019624965386}
   vfxblood: {fileID: 4112428002275448, guid: 021a2f7a2c5bc4449b4c64a66a050e8c, type: 3}
   timeRemaining: 2
 --- !u!1 &2823140219261498090
