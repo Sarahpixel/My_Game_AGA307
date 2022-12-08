@@ -38996,7 +38996,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a2242f1d98cb384f96c78ba27a0c324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vfxExplosion: {fileID: 0}
+  vfxExplosion: {fileID: 4389029538297518, guid: b3d8264aa7d2d824a8a503e45291ddf4,
+    type: 3}
   vfxblood: {fileID: 4448219369109366, guid: 6c86c599d7bf3464eb4506d2584fbe57, type: 3}
   timeRemaining: 3
 --- !u!1 &4771012519701181538
