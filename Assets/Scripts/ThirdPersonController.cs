@@ -81,7 +81,6 @@ namespace StarterAssets
         private float _cinemachineTargetPitch;
 
         // player
-        public int health = 100;
         private float _speed;
         private float _animationBlend;
         private float _targetRotation = 0.0f;
