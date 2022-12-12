@@ -19,11 +19,12 @@ public class BulletProjectile : MonoBehaviour
         float speed = 10f;
         bulletRigidBody.velocity = transform.forward * speed;
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.GetComponent<Enemy>() != null)
+        if (other.gameObject.GetComponent<Enemy>() != null)
         {
-           //hit target
+            //hit target
+            other.gameObject.GetComponent<Enemy>().TakeDamage(20);    
            Instantiate(vfxblood, transform.position, Quaternion.identity);
         }
         else
