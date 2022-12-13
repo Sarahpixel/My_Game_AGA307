@@ -28,7 +28,7 @@ public class Pause : MonoBehaviour
             pausePanel.SetActive(true);
             Time.timeScale = 1;
             isPaused = true;
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
         }
         else
         {

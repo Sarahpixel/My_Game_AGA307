@@ -102,7 +102,7 @@ public class Enemy : MonoBehaviour
     {
         health -= damage;
 
-        if(health <= 0) Invoke(nameof(DestroyEnemy), 2f);
+        if (health <= 0) Invoke(nameof(DestroyEnemy), 2f);
     }
     private void DestroyEnemy()
     {
