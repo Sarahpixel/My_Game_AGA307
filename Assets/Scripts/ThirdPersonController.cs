@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -88,6 +89,11 @@ namespace StarterAssets
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
 
+        ////Reset zone
+        //GameObject resetPoint;
+        //bool resetting = false;
+        //Color originalColour;
+
         // timeout deltatime
         private float _jumpTimeoutDelta;
         private float _fallTimeoutDelta;
@@ -152,6 +158,12 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            Time.timeScale = 1;
+
+            ////reset player if fallen off course
+            //resetPoint = GameObject.Find("Reset Point");
+            //originalColour = GetComponent<Renderer>().material.color;
         }
 
         private void Update()
@@ -162,6 +174,11 @@ namespace StarterAssets
             GroundedCheck();
             Move();
         }
+        //private void FixedUpdate()
+        //{
+        //    if (resetting)
+        //        return;
+        //}
 
         private void LateUpdate()
         {
@@ -177,6 +194,14 @@ namespace StarterAssets
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
         }
 
+        //private void OnCollisionEnter(Collision collision)
+        //{
+        //    if (collision.gameObject.CompareTag("Respawn"))
+        //    {
+        //        StartCoroutine(ResetPlayer());
+        //    }
+        //}
+        
         private void GroundedCheck()
         {
             // set sphere position, with offset
