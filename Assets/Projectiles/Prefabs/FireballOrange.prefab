@@ -38998,7 +38998,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vfxExplosion: {fileID: 4773403894528304, guid: d786e2d05a34bf741b1bd7fd569828cd,
     type: 3}
-  vfxblood: {fileID: 4448219369109366, guid: 6c86c599d7bf3464eb4506d2584fbe57, type: 3}
+  vfxblood: {fileID: 4787146697146794705, guid: e9050f838eb01db44b8958e4d8266866,
+    type: 3}
   timeRemaining: 3
 --- !u!1 &4771012519701181538
 GameObject:
