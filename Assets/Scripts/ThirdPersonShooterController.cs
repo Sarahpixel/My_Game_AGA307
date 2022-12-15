@@ -86,9 +86,18 @@ public class ThirdPersonShooterController : MonoBehaviour
             Instantiate(bulletProjectile, bulletPoint.position, Quaternion.LookRotation(aimDir,Vector3.up));
             starterAssetsInputs.shoot = false;
         }
-     
+
+        if (Pause.GameIsPaused == true)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else if (Pause.GameIsPaused == false) 
+            Cursor.lockState = CursorLockMode.Locked;
+
+
+
 
     }
-   
+
 
 }
