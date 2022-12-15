@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
     //public static event Action OnPlayerDeath;
     [SerializeField] private float startingHealth;
     public float currentHealth;
-    private bool dead;
+    
 
     private void Awake()
     {
@@ -22,17 +22,12 @@ public class Health : MonoBehaviour
         if (currentHealth > 0)
         {
             //player hurt
+           
         }
         else
         {
-            if (!dead)
-            {
-                //if dead disable player movement
-                GetComponent<ThirdPersonController>().enabled = false;
-                //Debug.Log("You're Dead");
-                ////player dies
-                //dead = true;
-            }
+           //player dies
+           
             
         }
     }
