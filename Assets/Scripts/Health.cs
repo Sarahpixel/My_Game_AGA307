@@ -3,38 +3,46 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class Health : MonoBehaviour
 {
-    //public static event Action OnPlayerDeath;
-    [SerializeField] private float startingHealth;
-    public float currentHealth;
-    
 
-    private void Awake()
-    {
-        currentHealth = startingHealth;
-    }
-    public void TakeDamage(float _damage)
-    {
-        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
-        if (currentHealth > 0)
-        {
-            //player hurt
-           
-        }
-        else
-        {
-           //player dies
-           
-            
-        }
-    }
+    public Image healthBar;
+    public float healthAmount = 100;
+
     private void Update()
     {
+        if (healthAmount <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+
         if (Input.GetKeyDown(KeyCode.E))
-            TakeDamage(1);
-       
+        {
+            TakeDamage(20);
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Healing(10);
+        }
     }
+
+    public void TakeDamage(float Damage)
+    {
+        healthAmount -= Damage;
+        healthBar.fillAmount = healthAmount / 100;
+    }
+
+    public void Healing(float healPoints)
+    {
+        healthAmount += healPoints;
+        healthAmount = Mathf.Clamp(healthAmount, 0, 100);
+
+        healthBar.fillAmount = healthAmount / 100;
+    }
+
 }

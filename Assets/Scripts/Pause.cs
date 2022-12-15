@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
     public GameObject pausePanel;
-    public static bool isPaused = false;
+    public static bool GameIsPaused = false;
 
     private void Start()
     {
@@ -17,30 +17,59 @@ public class Pause : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            TogglePause();
+           if (GameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Paused();
+            }
         }
+
     }
-    public void TogglePause()
+    public void Resume()
     {
-        isPaused = !isPaused;
+        pausePanel.SetActive(false);
+        Time.timeScale = 1;
+        GameIsPaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
-        if(isPaused)
-        {
-            pausePanel.SetActive(true);
-            Time.timeScale = 1;
-            isPaused = true;
-            Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
-          
-        }
-        else
-        {
-            pausePanel.SetActive(false);
-            Time.timeScale = 1;
-            isPaused = false;
-            Cursor.lockState = CursorLockMode.Confined;
-            
+    void Paused()
+    {
+        pausePanel.SetActive(true);
+        Time.timeScale = 1;
+        GameIsPaused = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
 
-        }
+    //public void TogglePause()
+    //{
+    //    isPaused = !isPaused;
+
+    //    if(isPaused)
+    //    {
+    //        pausePanel.SetActive(true);
+    //        Time.timeScale = 1;
+    //        isPaused = true;
+    //        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+
+    //    }
+    //    else
+    //    {
+    //        pausePanel.SetActive(false);
+    //        Time.timeScale = 1;
+    //        isPaused = false;
+    //        Cursor.lockState = CursorLockMode.Confined;
+
+
+    //    }
+    //}
+
+    public void LoadGame()
+    {
+        SceneManager.LoadScene("Starlight");
     }
     public void QuitGame()
     {

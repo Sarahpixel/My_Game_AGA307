@@ -60,13 +60,10 @@ public class Enemy : MonoBehaviour
     }
     //private void OnCollisionEnter(Collision collision)
     //{
-    //    if(collision.gameObject.tag == "Player")
-    //    {
-    //        playerHealth.Damage(damage);
-    //    }
 
-    //}
-    private void Patrolling()
+
+//}
+private void Patrolling()
     {
         if(!spawnPointSet) SearchSpawnPoint();
         //using navmesh
@@ -111,6 +108,14 @@ public class Enemy : MonoBehaviour
 
             alreadyAtacked= true;
             Invoke(nameof(ResetAttack), timeBetweenAttack);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        if (collision.gameObject.tag == "Player")
+        {
+            TakeDamage(10);
         }
     }
     private void ResetAttack()

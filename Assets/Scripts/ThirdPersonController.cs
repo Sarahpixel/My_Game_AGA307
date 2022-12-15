@@ -77,6 +77,10 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        [Header("UI")]
+        public GameObject gameOverPanel;
+
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -161,6 +165,7 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
 
             Time.timeScale = 1;
+            gameOverPanel.SetActive(false);
 
             ////reset player if fallen off course
             //resetPoint = GameObject.Find("Reset Point");
@@ -174,6 +179,17 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+
+            if (Pause.GameIsPaused)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
         }
         //private void FixedUpdate()
         //{
@@ -185,6 +201,7 @@ namespace StarterAssets
         {
             CameraRotation();
         }
+
 
         private void AssignAnimationIDs()
         {
@@ -268,6 +285,8 @@ namespace StarterAssets
 
                 // round speed to 3 decimal places
                 _speed = Mathf.Round(_speed * 1000f) / 1000f;
+
+                
             }
             else
             {
