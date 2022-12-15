@@ -110,7 +110,9 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_TILEMAP
 --compilation-defines=ENABLE_TIMELINE
 --compilation-defines=ENABLE_INPUT_SYSTEM
+--compilation-defines=ENABLE_LEGACY_INPUT_MANAGER
 --compilation-defines=STARTER_ASSETS_PACKAGES_CHECKED
+--compilation-defines=UNITY_POST_PROCESSING_STACK_V2
 --compilation-defines=PACKAGE_PHYSICS
 --compilation-defines=PACKAGE_PHYSICS2D
 --compilation-defines=PACKAGE_TILEMAP
@@ -136,6 +138,7 @@ Library: lib_burst_generated
 --compilation-defines=MODULE_PHYSICS_EXISTS
 --compilation-defines=MODULE_PHYSICS_2D_EXISTS
 --compilation-defines=MODULE_PARTICLE_SYSTEM_EXISTS
+--compilation-defines=CINEMACHINE_POST_PROCESSING_V2
 --compilation-defines=CINEMACHINE_TIMELINE
 --compilation-defines=CINEMACHINE_PHYSICS_2D
 --compilation-defines=CINEMACHINE_PHYSICS
@@ -145,6 +148,7 @@ Library: lib_burst_generated
 --compilation-defines=CINEMACHINE_UNITY_ANIMATION
 --compilation-defines=CINEMACHINE_UNITY_IMGUI
 --compilation-defines=TIMELINE_FRAMEACCURATE
+--compilation-defines=UNIVERSAL_1_0_0_OR_NEWER
 --linker-options=PdbAltPath="My_Game_AGA307_Data/Plugins/x86_64"
 --generate-link-xml=Temp\burst.link.xml
 --output=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Plugins\x86_64\lib_burst_generated
@@ -166,7 +170,10 @@ Library: lib_burst_generated
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Services.Core.Scheduler.dll
+--root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Postprocessing.Runtime.dll
+--root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\CodeMonkey_HealthSystem.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Services.Core.Device.dll
+--root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\NavMeshComponentsExamples.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Services.Core.Analytics.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Services.Core.Threading.dll
@@ -174,7 +181,6 @@ Library: lib_burst_generated
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Services.Core.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Services.Core.Networking.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\NavMeshComponents.dll
---root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Services.Core.Registration.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll
@@ -305,7 +311,9 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_TILEMAP
 --compilation-defines=ENABLE_TIMELINE
 --compilation-defines=ENABLE_INPUT_SYSTEM
+--compilation-defines=ENABLE_LEGACY_INPUT_MANAGER
 --compilation-defines=STARTER_ASSETS_PACKAGES_CHECKED
+--compilation-defines=UNITY_POST_PROCESSING_STACK_V2
 --compilation-defines=PACKAGE_PHYSICS
 --compilation-defines=PACKAGE_PHYSICS2D
 --compilation-defines=PACKAGE_TILEMAP
@@ -331,6 +339,7 @@ Library: lib_burst_generated
 --compilation-defines=MODULE_PHYSICS_EXISTS
 --compilation-defines=MODULE_PHYSICS_2D_EXISTS
 --compilation-defines=MODULE_PARTICLE_SYSTEM_EXISTS
+--compilation-defines=CINEMACHINE_POST_PROCESSING_V2
 --compilation-defines=CINEMACHINE_TIMELINE
 --compilation-defines=CINEMACHINE_PHYSICS_2D
 --compilation-defines=CINEMACHINE_PHYSICS
@@ -340,6 +349,7 @@ Library: lib_burst_generated
 --compilation-defines=CINEMACHINE_UNITY_ANIMATION
 --compilation-defines=CINEMACHINE_UNITY_IMGUI
 --compilation-defines=TIMELINE_FRAMEACCURATE
+--compilation-defines=UNIVERSAL_1_0_0_OR_NEWER
 --linker-options=PdbAltPath="My_Game_AGA307_Data/Plugins/x86_64"
 --generate-link-xml=Temp\burst.link.xml
 --output=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Plugins\x86_64\lib_burst_generated
@@ -361,7 +371,10 @@ Library: lib_burst_generated
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Services.Core.Scheduler.dll
+--root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Postprocessing.Runtime.dll
+--root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\CodeMonkey_HealthSystem.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Services.Core.Device.dll
+--root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\NavMeshComponentsExamples.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Services.Core.Analytics.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Services.Core.Threading.dll
@@ -369,7 +382,6 @@ Library: lib_burst_generated
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Services.Core.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Services.Core.Networking.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\NavMeshComponents.dll
---root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.Services.Core.Registration.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
 --root-assembly=C:\WorkSpace\AGA307\My_Game_AGA307\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll

@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class Title : MonoBehaviour
 {
-  public void ChangeScene(string _sceneName)
+  public void ChangeScene(string starlight)
     {
-        SceneManager.LoadScene( _sceneName );
+        SceneManager.LoadScene( starlight );
     }
 
     public void ReloadScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Starlight");
     }
     public void ToTitleScene()
     {

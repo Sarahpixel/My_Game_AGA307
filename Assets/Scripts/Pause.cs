@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,7 @@ public class Pause : MonoBehaviour
             Time.timeScale = 1;
             isPaused = true;
             Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+          
         }
         else
         {
@@ -36,6 +38,8 @@ public class Pause : MonoBehaviour
             Time.timeScale = 1;
             isPaused = false;
             Cursor.lockState = CursorLockMode.Confined;
+            
+
         }
     }
     public void QuitGame()

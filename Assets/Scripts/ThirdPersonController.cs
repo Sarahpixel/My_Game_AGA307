@@ -88,7 +88,7 @@ namespace StarterAssets
         private float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
-        public float health;
+   
 
         ////Reset zone
         //GameObject resetPoint;
@@ -239,16 +239,7 @@ namespace StarterAssets
                 _cinemachineTargetYaw, 0.0f);
         }
 
-        private void TakeDamage(int damage)
-        {
-            health -= damage;
-            if(health <= 0) Invoke(nameof(KillPlayer), 1f);
-
-        }
-        public void KillPlayer()
-        {
-            Destroy(gameObject);
-        }
+      
         private void Move()
         {
             // set target speed based on move speed, sprint speed and if sprint is pressed
@@ -320,6 +311,13 @@ namespace StarterAssets
                 _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             }
         }
+        //private void DisablePlayerMovement()
+        //{
+        //    _animator.enabled= false;
+            
+
+
+        //}
 
         private void JumpAndGravity()
         {
@@ -440,4 +438,5 @@ namespace StarterAssets
             }
         }
     }
+   
 }

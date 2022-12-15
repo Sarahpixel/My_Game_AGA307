@@ -11,7 +11,10 @@ public class Enemy : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
-    public float health;
+    public float EnemyHealth;
+
+    //Animator animator;
+
 
 
     //patroling
@@ -24,6 +27,10 @@ public class Enemy : MonoBehaviour
     public float timeBetweenAttack;
     bool alreadyAtacked;
     public GameObject projectile;
+    //public Health playerHealth;
+    //public int damage = 2;
+
+
 
 
     //states
@@ -35,7 +42,10 @@ public class Enemy : MonoBehaviour
         player = GameObject.Find("Player").transform;
         agent= GetComponent<NavMeshAgent>();
     }
-
+    //private void Start()
+    //{
+    //    animator = GetComponent<Animator>();
+    //}
     private void Update()
     {
         //Checks to see if palyer is in sight/range
@@ -46,7 +56,16 @@ public class Enemy : MonoBehaviour
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
 
+        //animator.SetFloat("Speed", agent.velocity.magnitude);
     }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.gameObject.tag == "Player")
+    //    {
+    //        playerHealth.Damage(damage);
+    //    }
+
+    //}
     private void Patrolling()
     {
         if(!spawnPointSet) SearchSpawnPoint();
@@ -100,9 +119,9 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        EnemyHealth -= damage;
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 2f);
+        if (EnemyHealth <= 0) Invoke(nameof(DestroyEnemy), 2f);
     }
     private void DestroyEnemy()
     {
