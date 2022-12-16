@@ -110,14 +110,7 @@ private void Patrolling()
             Invoke(nameof(ResetAttack), timeBetweenAttack);
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-        if (collision.gameObject.tag == "Player")
-        {
-            TakeDamage(10);
-        }
-    }
+   
     private void ResetAttack()
     {
         alreadyAtacked= false;

@@ -77,8 +77,8 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
-        [Header("UI")]
-        public GameObject gameOverPanel;
+        //[Header("UI")]
+        //public GameObject gameOverPanel;
 
 
         // cinemachine
@@ -165,7 +165,7 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
 
             Time.timeScale = 1;
-            gameOverPanel.SetActive(false);
+            //gameOverPanel.SetActive(false);
 
             ////reset player if fallen off course
             //resetPoint = GameObject.Find("Reset Point");

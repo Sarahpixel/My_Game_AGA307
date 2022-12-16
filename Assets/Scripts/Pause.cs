@@ -43,7 +43,7 @@ public class Pause : MonoBehaviour
         
         Time.timeScale = 0f;
         GameIsPaused = true;
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     //public void TogglePause()
