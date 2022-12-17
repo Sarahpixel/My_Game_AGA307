@@ -7,6 +7,7 @@ public class BulletProjectile : MonoBehaviour
     [SerializeField] private Transform vfxExplosion;
     [SerializeField] private Transform vfxblood;
     private Rigidbody bulletRigidBody;
+
     
     private void Awake()
     {

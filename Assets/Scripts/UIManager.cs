@@ -11,11 +11,11 @@ public class UIManager : MonoBehaviour
 
     //public void OnEnable()
     //{
-    //    Health.OnPlayerDeath += EnableGameOverScreen;  
+    //    EnemyDamage.OnPlayerDeath += EnableGameOverScreen;
     //}
     //public void OnDisable()
     //{
-    //    Health.OnPlayerDeath -= EnableGameOverScreen;
+    //    EnemyDamage.OnPlayerDeath -= EnableGameOverScreen;
     //}
 
     //public void EnableGameOverScreen()
@@ -23,5 +23,5 @@ public class UIManager : MonoBehaviour
     //    gameOverPanel.SetActive(true);
     //    player.gameObject.GetComponent<ThirdPersonController>().enabled = false;
     //}
-  
+
 }

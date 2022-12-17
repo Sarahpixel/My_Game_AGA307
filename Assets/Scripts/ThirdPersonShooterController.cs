@@ -19,7 +19,7 @@ public class ThirdPersonShooterController : MonoBehaviour
     [SerializeField] private Transform bulletPoint;
 
     // Script Reference
-    private ThirdPersonController thirdPersonController;
+    private StarterAssets.ThirdPersonController thirdPersonController;
     private StarterAssetsInputs starterAssetsInputs;
     private Animator animator;
 
@@ -28,7 +28,7 @@ public class ThirdPersonShooterController : MonoBehaviour
         //gets the comonent of the starter assets
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
         //Get the component of the Third person controller
-        thirdPersonController = GetComponent<ThirdPersonController>();
+        thirdPersonController = GetComponent<StarterAssets.ThirdPersonController>();
         //gets the componet of the animator
         animator = GetComponent<Animator>();
        

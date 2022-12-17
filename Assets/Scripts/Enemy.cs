@@ -13,7 +13,9 @@ public class Enemy : MonoBehaviour
 
     public float EnemyHealth;
 
-    //Animator animator;
+    public Transform vfxDeath;
+
+    Animator animator;
 
 
 
@@ -27,6 +29,8 @@ public class Enemy : MonoBehaviour
     public float timeBetweenAttack;
     bool alreadyAtacked;
     public GameObject projectile;
+    [SerializeField] private Transform bulletPoint;
+
     //public Health playerHealth;
     //public int damage = 2;
 
@@ -42,10 +46,10 @@ public class Enemy : MonoBehaviour
         player = GameObject.Find("Player").transform;
         agent= GetComponent<NavMeshAgent>();
     }
-    //private void Start()
-    //{
-    //    animator = GetComponent<Animator>();
-    //}
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     private void Update()
     {
         //Checks to see if palyer is in sight/range
@@ -56,7 +60,7 @@ public class Enemy : MonoBehaviour
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
 
-        //animator.SetFloat("Speed", agent.velocity.magnitude);
+        animator.SetFloat("Speed", agent.velocity.magnitude);
     }
     //private void OnCollisionEnter(Collision collision)
     //{
@@ -99,12 +103,13 @@ private void Patrolling()
         //looks at player when attacking
         transform.LookAt(player);
 
+
         if(!alreadyAtacked)
         {
             //attack patern
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            Rigidbody rb = Instantiate(projectile, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * 25f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 1f, ForceMode.Impulse);
 
             alreadyAtacked= true;
             Invoke(nameof(ResetAttack), timeBetweenAttack);
@@ -119,7 +124,12 @@ private void Patrolling()
     {
         EnemyHealth -= damage;
 
-        if (EnemyHealth <= 0) Invoke(nameof(DestroyEnemy), 2f);
+        if (EnemyHealth <= 0)
+        {
+
+            Invoke(nameof(DestroyEnemy), 1f);
+            Instantiate(vfxDeath, transform.position, Quaternion.identity);
+        } 
     }
     private void DestroyEnemy()
     {

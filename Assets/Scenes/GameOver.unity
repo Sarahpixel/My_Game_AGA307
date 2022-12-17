@@ -404,8 +404,8 @@ GameObject:
   - component: {fileID: 346591490}
   - component: {fileID: 346591489}
   - component: {fileID: 346591488}
-  - component: {fileID: 346591491}
   - component: {fileID: 346591487}
+  - component: {fileID: 346591491}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -504,7 +504,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 346591486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 140d4d61e987145489a1a845973d203f, type: 3}
+  m_Script: {fileID: 11500000, guid: dd91bb92854d25944836efe478a82fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &362829646
@@ -592,7 +592,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 346591491}
-        m_TargetAssemblyTypeName: Title, Assembly-CSharp
+        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: ToTitleScene
         m_Mode: 1
         m_Arguments:
@@ -861,7 +861,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 346591491}
-        m_TargetAssemblyTypeName: Title, Assembly-CSharp
+        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: ReloadScene
         m_Mode: 1
         m_Arguments:

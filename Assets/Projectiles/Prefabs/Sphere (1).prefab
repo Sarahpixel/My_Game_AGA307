@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3269625219844572556}
   - component: {fileID: -6406817874258182515}
   - component: {fileID: 1641119170390058529}
+  - component: {fileID: 7944679581919125279}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -113,4 +114,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4410ec4a3053c0448b6f6ba4ac1376f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
+  damage: 1
+  health: {fileID: 8424403111353535981, guid: ee730edece98d5449882882447374638, type: 3}
+  vfxExplosion: {fileID: 4773403894528304, guid: d786e2d05a34bf741b1bd7fd569828cd,
+    type: 3}
+  vfxblood: {fileID: 4787146697146794705, guid: e9050f838eb01db44b8958e4d8266866,
+    type: 3}
+--- !u!135 &7944679581919125279
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3245661806016582520}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

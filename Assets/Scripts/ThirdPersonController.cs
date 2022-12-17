@@ -2,6 +2,7 @@
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -92,7 +93,13 @@ namespace StarterAssets
         private float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
-   
+
+        ////player health
+        //[SerializeField] private GameObject hitEffect, deathEffect;
+        //[SerializeField] private float maxHealth = 100;
+
+        private float currentHealth;
+
 
         ////Reset zone
         //GameObject resetPoint;
@@ -147,6 +154,9 @@ namespace StarterAssets
 
         private void Start()
         {
+
+            //currentHealth = maxHealth;
+
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
             _hasAnimator = TryGetComponent(out _animator);
@@ -202,7 +212,20 @@ namespace StarterAssets
             CameraRotation();
         }
 
+        //private void PlayerHealth()
+        //{
+        //    if(currentHealth <= 0)
+        //    {
+        //        Instantiate(deathEffect, transform.position, Quaternion.Euler(-90, 0, 0));
+        //        Destroy(gameObject);
+        //        SceneManager.LoadScene("GameOver");
+        //    }
+        //    else
+        //    {
 
+        //        Instantiate(hitEffect, transform.position, Quaternion.identity);
+        //    }
+        //}
         private void AssignAnimationIDs()
         {
             _animIDSpeed = Animator.StringToHash("Speed");

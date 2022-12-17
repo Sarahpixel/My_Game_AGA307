@@ -10,40 +10,35 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
 
-    public Image healthBar;
-    public float healthAmount = 100;
+    [SerializeField]private Image[] hearts;
+    public int playerHealth = 10;
 
-    private void Update()
+    private void Start()
     {
-        if (healthAmount <= 0)
+        UpdateHealth();
+        
+    }
+
+    public void UpdateHealth()
+    {
+        if (playerHealth <= 0)
         {
             SceneManager.LoadScene("GameOver");
+
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        for (int i = 0; i < hearts.Length; i++)
         {
-            TakeDamage(20);
+            if(i < playerHealth)
+            {
+                hearts[i].color = Color.red;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
         }
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Healing(10);
-        }
     }
 
-    public void TakeDamage(float Damage)
-    {
-        healthAmount -= Damage;
-        healthBar.fillAmount = healthAmount / 100;
-    }
 
-    public void Healing(float healPoints)
-    {
-        healthAmount += healPoints;
-        healthAmount = Mathf.Clamp(healthAmount, 0, 100);
-
-        healthBar.fillAmount = healthAmount / 100;
-    }
-
-   
 }
