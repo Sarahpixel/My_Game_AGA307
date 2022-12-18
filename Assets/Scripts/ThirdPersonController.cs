@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -8,6 +9,14 @@ using UnityEngine.SceneManagement;
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
  */
 
+
+public enum MovementState
+{
+    freeze,
+     unlimited,
+     wallRunning,
+     climbing
+}
 namespace StarterAssets
 {
     [RequireComponent(typeof(CharacterController))]
@@ -78,6 +87,9 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        [Header("References")]
+        public Climbing climbingScript;
+
         //[Header("UI")]
         //public GameObject gameOverPanel;
 
@@ -93,6 +105,10 @@ namespace StarterAssets
         private float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
+        public float climbingSpeed;
+        public float wallRunSpeed;
+        
+        
 
         ////player health
         //[SerializeField] private GameObject hitEffect, deathEffect;
@@ -130,6 +146,17 @@ namespace StarterAssets
 
         private bool _hasAnimator;
 
+        Rigidbody rb;
+        public MovementState state;
+
+        public bool freeze;
+        public bool unlimited;
+        public bool wallRunning;
+        public bool climbing;
+
+        public bool restricted;
+
+
         private bool IsCurrentDeviceMouse
         {
             get
@@ -154,7 +181,7 @@ namespace StarterAssets
 
         private void Start()
         {
-
+          
             //currentHealth = maxHealth;
 
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
@@ -242,6 +269,35 @@ namespace StarterAssets
         //        StartCoroutine(ResetPlayer());
         //    }
         //}
+
+        private void StateHandler()
+        {
+            // Wall running
+            if(wallRunning)
+            {
+                state = MovementState.wallRunning;
+                MoveSpeed = wallrunSpeed;
+            }
+            //climb mode 
+            if(climbing)
+            {
+                state = MovementState.climbing;
+                MoveSpeed = climbingSpeed;
+            }
+            //mode freeze
+            if (freeze)
+            {
+                state = MovementState.freeze;
+                rb.velocity = Vector3.zero;
+                
+            }
+            else if (unlimited)
+            {
+                state = MovementState.unlimited;
+                MoveSpeed = 999f;
+                return;
+            }
+        }
         
         private void GroundedCheck()
         {
@@ -278,10 +334,12 @@ namespace StarterAssets
             CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
                 _cinemachineTargetYaw, 0.0f);
         }
-
+      
       
         private void Move()
         {
+
+
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
@@ -338,7 +396,10 @@ namespace StarterAssets
                 }
                
             }
+            if (restricted) return;
 
+            if (climbingScript.exitingWall) return; 
+            
 
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
