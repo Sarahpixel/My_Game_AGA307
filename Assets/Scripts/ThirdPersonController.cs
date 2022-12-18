@@ -276,7 +276,7 @@ namespace StarterAssets
             if(wallRunning)
             {
                 state = MovementState.wallRunning;
-                MoveSpeed = wallrunSpeed;
+                MoveSpeed = wallRunSpeed;
             }
             //climb mode 
             if(climbing)

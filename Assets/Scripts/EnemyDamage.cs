@@ -19,6 +19,7 @@ public class EnemyDamage : MonoBehaviour
         {
             //hit target
             Damage();
+
             
             Instantiate(vfxblood, transform.position, Quaternion.identity);
         }
@@ -28,12 +29,13 @@ public class EnemyDamage : MonoBehaviour
             Instantiate(vfxExplosion, transform.position, Quaternion.identity);
         }
         Destroy(gameObject);
-    }
 
+    }
+  
     void Damage()
     {
-        health.playerHealth = health.playerHealth - damage;
-        health.UpdateHealth();
+        health.maxPlayerHealth = health.maxPlayerHealth - damage;
+        health.HealthUpdate();
         gameObject.SetActive(false);
     }
     

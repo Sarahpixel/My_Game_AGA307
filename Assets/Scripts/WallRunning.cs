@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StarterAssets;
 
 public class WallRunning : MonoBehaviour
 {
@@ -8,11 +9,14 @@ public class WallRunning : MonoBehaviour
     public LayerMask whatIsWall;
     public LayerMask whatIsGround;
     public float wallRunForce;
+    public float wallJumpUpForce;
+    public float wallJumpSideForce;
     public float wallClimbSpeed;
     public float maxWallRunTime;
     private float wallRunTimer;
 
     [Header("Input")]
+    public KeyCode jumpKey = KeyCode.Space;
     public KeyCode upwardsRunKey = KeyCode.LeftShift;
     public KeyCode downwardsRunKey = KeyCode.LeftControl;
     private bool upwardsRunning;
@@ -30,13 +34,15 @@ public class WallRunning : MonoBehaviour
 
     [Header("References")]
     public Transform orientation;
-    private PlayerMovementAdvanced pm;
+    private ThirdPersonController pm;
+    private LedgeGrabbing lg;
     private Rigidbody rb;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<ThirdPersonController>();
+        lg = GetComponent<LedgeGrabbing>();
     }
 
     private void Update()
@@ -47,7 +53,7 @@ public class WallRunning : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (pm.wallrunning)
+        if (pm.wallRunning)
             WallRunningMovement();
     }
 
@@ -64,7 +70,7 @@ public class WallRunning : MonoBehaviour
 
     private void StateMachine()
     {
-        // Getting Inputs
+        // Getting Inputs from the horizontal and vertical input keys
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -74,26 +80,31 @@ public class WallRunning : MonoBehaviour
         // State 1 - Wallrunning
         if((wallLeft || wallRight) && verticalInput > 0 && AboveGround())
         {
-            if (!pm.wallrunning)
+            // Starts wall run
+            if (!pm.wallRunning)
                 StartWallRun();
+
+            // wall jump input
+            if(Input.GetKeyDown(jumpKey)) Walljump();   
         }
 
         // State 3 - None
         else
         {
-            if (pm.wallrunning)
+            if (pm.wallRunning)
                 StopWallRun();
         }
     }
 
     private void StartWallRun()
     {
-        pm.wallrunning = true;
+        pm.wallRunning = true; // Enable wall running
     }
 
     private void WallRunningMovement()
     {
-        rb.useGravity = false;
+        if (lg.holding || lg.exitingLedge) return;
+        rb.useGravity = false; // turns the gravity off from the rigidbody
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         Vector3 wallNormal = wallRight ? rightWallhit.normal : leftWallhit.normal;
@@ -119,6 +130,17 @@ public class WallRunning : MonoBehaviour
 
     private void StopWallRun()
     {
-        pm.wallrunning = false;
+        pm.wallRunning = false;
+    }
+
+    private void Walljump()
+    {
+        Vector3 wallNormal = wallRight ? rightWallhit.normal : leftWallhit.normal;
+
+        Vector3 forceToApply = transform.up * wallJumpUpForce + wallNormal * wallJumpSideForce;
+
+        // Reset the y velocity and add force
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(forceToApply, ForceMode.Impulse);
     }
 }
